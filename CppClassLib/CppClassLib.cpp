@@ -1,5 +1,3 @@
-#include "pch.h"
-
 #include "CppClassLib.h"
 
 using namespace System::Runtime::CompilerServices;
