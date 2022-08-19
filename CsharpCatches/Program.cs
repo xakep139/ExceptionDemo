@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 [assembly: RuntimeCompatibilityAttribute(WrapNonExceptionThrows = true)]
 #endregion
 
-namespace CSharpConsole;
+namespace CSharpCatches;
 
 internal class Program
 {
@@ -29,11 +29,13 @@ internal class Program
         catch (Exception ex)
         {
             Console.WriteLine("Exception clause in C#: {0}", ex);
-        }
-        catch
-        {
+		}
+		#region Region for M3()
+		catch
+		{
             Console.WriteLine("Catch clause in C#");
             throw;
-        }
-    }
+		}
+		#endregion
+	}
 }

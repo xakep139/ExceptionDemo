@@ -3,12 +3,14 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Filters
+namespace CSharpFilters
 {
     internal class Program
     {
-        private static bool ExceptionFilterPredicate(Exception ex)
+        private static bool MyPredicate(Exception ex)
         {
+            Console.WriteLine("ExceptionFilterPredicate() was called...");
+
             return ex is InvalidOperationException ioe &&
                 ioe.InnerException == null;
         }
@@ -29,7 +31,8 @@ namespace Filters
             {
                 Console.WriteLine("InvalidOperationException clause");
             }
-            catch (Exception ex) when (ExceptionFilterPredicate(ex))
+			#region Hidden
+			catch (Exception ex) when (MyPredicate(ex))
             {
                 Console.WriteLine("General Exception clause with filter");
             }
@@ -41,9 +44,10 @@ namespace Filters
             {
                 Console.WriteLine("General Exception clause: {0}", ex);
             }
-            finally
-            {
-                //call this if exception occurs or not
+			#endregion
+			finally
+			{
+                // call this regardless of whether exception occurs or not
                 httpClient?.Dispose();
             }
         }
