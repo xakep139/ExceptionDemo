@@ -10,7 +10,7 @@ namespace CSharpFilters
         #region Hidden region
         private static bool MyPredicate(Exception ex)
         {
-            Console.WriteLine("ExceptionFilterPredicate() was called...");
+            Console.WriteLine("MyPredicate() was called...");
 
             return ex is InvalidOperationException ioe &&
                 ioe.InnerException == null;
