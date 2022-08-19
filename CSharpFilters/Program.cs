@@ -7,6 +7,7 @@ namespace CSharpFilters
 {
     internal class Program
     {
+        #region Hidden region
         private static bool MyPredicate(Exception ex)
         {
             Console.WriteLine("ExceptionFilterPredicate() was called...");
@@ -14,6 +15,7 @@ namespace CSharpFilters
             return ex is InvalidOperationException ioe &&
                 ioe.InnerException == null;
         }
+        #endregion
 
         static async Task Main()
         {
@@ -27,16 +29,19 @@ namespace CSharpFilters
             {
                 Console.WriteLine("HttpRequestException clause with InternalServerError filter");
             }
-            catch (InvalidOperationException) // Can we move this catch clause down?
+            catch (InvalidOperationException)
             {
                 Console.WriteLine("InvalidOperationException clause");
             }
-			#region Hidden
-			catch (Exception ex) when (MyPredicate(ex))
+
+            #region Hidden section
+            catch (Exception ex) when (MyPredicate(ex))
             {
                 Console.WriteLine("General Exception clause with filter");
             }
-            catch (HttpRequestException)
+            #endregion
+
+            catch (HttpRequestException) // Can we move this catch clause down?
             {
                 Console.WriteLine("HttpRequestException clause");
             }
@@ -44,9 +49,8 @@ namespace CSharpFilters
             {
                 Console.WriteLine("General Exception clause: {0}", ex);
             }
-			#endregion
-			finally
-			{
+            finally
+            {
                 // call this regardless of whether exception occurs or not
                 httpClient?.Dispose();
             }

@@ -3,17 +3,18 @@
 using namespace System::Runtime::CompilerServices;
 
 #pragma region Region for M3()
-[assembly:RuntimeCompatibilityAttribute(WrapNonExceptionThrows = true)];
+// This is false by default:
+//[assembly:RuntimeCompatibility(WrapNonExceptionThrows = true)];
 #pragma endregion
 
 void CppClassLib::MyCppClass::M1()
 {
-    throw (42);
+    throw (gcnew NotSupportedException("Throwing a NotSupportedException from C++/CLI"));
 }
 
 void CppClassLib::MyCppClass::M2()
 {
-    throw (gcnew NotSupportedException("NotSupportedException from C++/CLI"));
+    throw (42);
 }
 
 void CppClassLib::MyCppClass::M3()

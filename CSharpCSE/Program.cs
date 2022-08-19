@@ -5,11 +5,12 @@ namespace CSharpCSE
 {
     internal class Program
     {
-		#region Hint section
+        #region Hint section
         // The same behavior can be achieved by changing the app.config:
-		//[System.Runtime.ExceptionServices.HandleProcessCorruptedStateExceptions] // Will not work in .NET Core
-		#endregion
-		static void Main()
+        //[System.Runtime.ExceptionServices.HandleProcessCorruptedStateExceptions] // Will not work in .NET Core
+        #endregion
+
+        static void Main()
         {
             try
             {
@@ -21,9 +22,9 @@ namespace CSharpCSE
                 throw;
             }
             finally
-			{
-				Console.WriteLine("Executing finally block");
-			}
+            {
+                Console.WriteLine("Executing finally block");
+            }
         }
     }
 }

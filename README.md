@@ -4,6 +4,7 @@ Links to review:
 - [CLR Inside Out - Handling Corrupted State Exceptions](https://docs.microsoft.com/en-us/archive/msdn-magazine/2009/february/clr-inside-out-handling-corrupted-state-exceptions)
 - [RuntimeWrappedException](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.runtimewrappedexception)
 - [SEHException](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.sehexception)
+- [AccessViolationException](https://docs.microsoft.com/en-us/dotnet/api/system.accessviolationexception)
 - [HandleProcessCorruptedStateExceptionsAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.exceptionservices.handleprocesscorruptedstateexceptionsattribute)
 
 <!--
