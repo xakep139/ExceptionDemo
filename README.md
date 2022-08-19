@@ -2,6 +2,7 @@
 
 Links to review:
 - [CLR Inside Out - Handling Corrupted State Exceptions](https://docs.microsoft.com/en-us/archive/msdn-magazine/2009/february/clr-inside-out-handling-corrupted-state-exceptions)
+- [Structured Exception Handling](https://docs.microsoft.com/en-us/windows/win32/debug/structured-exception-handling)
 - [Constrained Execution Regions](https://docs.microsoft.com/en-us/dotnet/framework/performance/constrained-execution-regions)
 - [RuntimeWrappedException](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.runtimewrappedexception)
 - [SEHException](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.sehexception)
