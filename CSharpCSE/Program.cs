@@ -14,12 +14,19 @@ namespace CSharpCSE
         {
             try
             {
+                throw new AccessViolation­Exception("Test exception");
+
+                #region Hint section
                 Marshal.StructureToPtr(123, new IntPtr(123), true);
+                #endregion
             }
-            catch (AccessViolationException)
+            catch (AccessViolationException ex)
             {
-                Console.WriteLine("AccessViolationException catch clause visited");
-                throw;
+                Console.WriteLine("AccessViolationException clause visited: {0}", ex.Message);
+            }
+            catch
+            {
+                Console.WriteLine("Catch clause visited");
             }
             finally
             {
